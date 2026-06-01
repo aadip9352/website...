@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House of Sharvi – Luxury Jewellery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lora:wght@400;500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #000000;
+            --primary-gray: #6F6F6F;
+            --light-gray: #F5F5F5;
+            --very-light-gray: #FAFAFA;
+            --accent-gold: #D4A574;
+            --accent-gold-dark: #B8956A;
+            --white: #FFFFFF;
+            --border-light: #E8E8E8;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Lora', serif;
+            color: var(--primary-black);
+            background-color: var(--white);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* ==================== NAVIGATION ==================== */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-light);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--primary-black);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -5px;
+            left: 0;
+            background: var(--accent-gold);
+            transition: width 0.4s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .nav-cta {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 0.7rem 1.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--accent-gold);
+            letter-spacing: 0.12em;
+        }
+
+        /* ==================== HERO SECTION ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem 5%;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #FAFAFA 0%, #FFFFFF 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.08) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(212, 165, 116, 0.06) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-headline {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 600;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-headline .italic-gray {
+            font-style: italic;
+            color: var(--primary-gray);
+            font-weight: 400;
+        }
+
+        .hero-description {
+            font-family: 'Lora', serif;
+            font-size: 1.1rem;
+            color: var(--primary-gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-weight: 400;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        /* ==================== BUTTONS ==================== */
+        .cta-primary, .cta-secondary {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-primary {
+            background: var(--primary-black);
+            color: var(--white);
+        }
+
+        .cta-primary:hover {
+            background: var(--accent-gold);
+            letter-spacing: 0.15em;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-secondary {
+            background: transparent;
+            color: var(--primary-black);
+            border: 2px solid var(--primary-black);
+        }
+
+        .cta-secondary:hover {
+            background: var(--primary-black);
+            color: var(--white);
+            border-color: var(--primary-black);
+            letter-spacing: 0.15em;
+            transform: translateY(-3px);
+        }
+
+        /* ==================== COLLECTIONS SECTION ==================== */
+        .collections-section {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: -0.01em;
+        }
+
+        .section-header p {
+            color: var(--primary-gray);
+            font-size: 1.05rem;
+            line-height: 1.8;
+        }
+
+        .divider {
+            width: 60px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin: 1rem auto;
+        }
+
+        .collections-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .collection-card {
+            background: var(--light-gray);
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .collection-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #E8E8E8 0%, #EEEEEE 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: var(--primary-gray);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .collection-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 0%, rgba(212, 165, 116, 0.1) 100%);
+        }
+
+        .collection-info {
+            padding: 2rem;
+        }
+
+        .collection-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .collection-info p {
+            color: var(--primary-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .collection-link {
+            font-family: 'Outfit', sans-serif;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .collection-link::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        .collection-link:hover::after {
+            margin-left: 1rem;
+        }
+
+        /* ==================== HERITAGE SECTION ==================== */
+        .heritage-section {
+            padding: 6rem 5%;
+            background: var(--very-light-gray);
+        }
+
+        .heritage-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .heritage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-top: 3rem;
+        }
+
+        .heritage-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+        }
+
+        .heritage-text p {
+            color: var(--primary-gray);
+            font-size: 1rem;
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .heritage-visual {
+            height: 450px;
+            background: linear-gradient(135deg, #E8E8E8 0%, #EEEEEE 100%);
+            border-radius: 2px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gray);
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heritage-visual::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at top right, rgba(212, 165, 116, 0.1), transparent);
+        }
+
+        /* ==================== CRAFTSMANSHIP SECTION ==================== */
+        .craftsmanship-section {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .craftsmanship-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .craft-card {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 2px;
+            animation: fadeInUp 0.8s ease-out;
+            transition: all 0.4s ease;
+        }
+
+        .craft-card:hover {
+            background: var(--very-light-gray);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .craft-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .craft-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .craft-card p {
+            color: var(--primary-gray);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ==================== JOURNAL SECTION ==================== */
+        .journal-section {
+            padding: 6rem 5%;
+            background: var(--very-light-gray);
+        }
+
+        .journal-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .journal-card {
+            background: var(--white);
+            border-radius: 2px;
+            overflow: hidden;
+            animation: fadeInUp 0.8s ease-out;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .journal-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .journal-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #E8E8E8 0%, #EEEEEE 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-gray);
+            font-size: 0.9rem;
+            position: relative;
+        }
+
+        .journal-content {
+            padding: 2rem;
+        }
+
+        .journal-date {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.5rem;
+        }
+
+        .journal-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            line-height: 1.4;
+        }
+
+        .journal-excerpt {
+            color: var(--primary-gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .journal-link {
+            font-family: 'Outfit', sans-serif;
+            color: var(--primary-black);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .journal-link::after {
+            content: '→';
+            margin-left: 0.5rem;
+            transition: margin-left 0.3s ease;
+        }
+
+        .journal-link:hover::after {
+            margin-left: 1rem;
+        }
+
+        /* ==================== CONTACT SECTION ==================== */
+        .contact-section {
+            padding: 6rem 5%;
+            background: var(--white);
+        }
+
+        .contact-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+            margin-top: 3rem;
+        }
+
+        .contact-info-block {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .info-item h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-item p, .info-item a {
+            color: var(--primary-gray);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .info-item a {
+            color: var(--accent-gold);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .info-item a:hover {
+            opacity: 0.7;
+        }
+
+        .contact-form {
+            background: var(--light-gray);
+            padding: 2.5rem;
+            border-radius: 2px;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            font-family: 'Lora', serif;
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            background: var(--white);
+            color: var(--primary-black);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 165, 116, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: var(--accent-gold);
+            letter-spacing: 0.15em;
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer-section {
+            background: var(--primary-black);
+            color: var(--white);
+            padding: 4rem 5%;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-block h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-divider {
+            width: 40px;
+            height: 1px;
+            background: var(--accent-gold);
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(212, 165, 116, 0.2);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.85rem;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            color: var(--accent-gold);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        /* ==================== ANIMATIONS ==================== */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-ctas {
+                gap: 1rem;
+            }
+
+            .heritage-grid,
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .cta-primary, .cta-secondary {
+                padding: 0.85rem 2rem;
+                font-size: 0.85rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav>
+        <div class="logo">House of Sharvi®</div>
+        <ul class="nav-menu">
+            <li><a onclick="scrollToSection('home')">Home</a></li>
+            <li><a onclick="scrollToSection('collections')">Collections</a></li>
+            <li><a onclick="scrollToSection('heritage')">Heritage</a></li>
+            <li><a onclick="scrollToSection('craftsmanship')">Craftsmanship</a></li>
+            <li><a onclick="scrollToSection('journal')">Journal</a></li>
+            <li><a onclick="scrollToSection('contact')">Contact</a></li>
+        </ul>
+        <button class="nav-cta" onclick="scrollToSection('collections')">Explore Collection</button>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1 class="hero-headline">
+                Where <span class="italic-gray">timeless elegance</span> meets modern artistry.
+            </h1>
+            <p class="hero-description">
+                House of Sharvi creates exquisite jewellery designed to celebrate individuality, heritage, and enduring beauty. Every piece is thoughtfully crafted to blend timeless tradition with contemporary sophistication.
+            </p>
+            <div class="hero-ctas">
+                <button class="cta-primary" onclick="scrollToSection('collections')">Explore Collection</button>
+                <button class="cta-secondary" onclick="scrollToSection('contact')">Book Consultation</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== COLLECTIONS SECTION ==================== -->
+    <section class="collections-section" id="collections">
+        <div class="section-header">
+            <h2>Our Collections</h2>
+            <div class="divider"></div>
+            <p>Discover our curated collections, each telling a unique story of elegance, craftsmanship, and timeless beauty.</p>
+        </div>
+
+        <div class="collections-grid">
+            <div class="collection-card">
+                <div class="collection-image">[Premium Jewelry Image]</div>
+                <div class="collection-info">
+                    <h3>Eternal Radiance</h3>
+                    <p>Timeless diamond and gemstone pieces that celebrate eternal love and commitment. Each piece embodies classic elegance.</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image">[Premium Jewelry Image]</div>
+                <div class="collection-info">
+                    <h3>Heritage Lines</h3>
+                    <p>Traditional designs inspired by Indian craftsmanship. Honoring legacy while embracing contemporary aesthetics.</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image">[Premium Jewelry Image]</div>
+                <div class="collection-info">
+                    <h3>Minimalist Luxe</h3>
+                    <p>Contemporary designs with understated elegance. Sophisticated simplicity meets refined craftsmanship.</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image">[Premium Jewelry Image]</div>
+                <div class="collection-info">
+                    <h3>Bridal Opulence</h3>
+                    <p>Bespoke bridal collections tailored for your special moments. Where tradition meets your unique story.</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image">[Premium Jewelry Image]</div>
+                <div class="collection-info">
+                    <h3>Everyday Elegance</h3>
+                    <p>Wearable luxury for daily moments. Refined pieces that seamlessly blend into your lifestyle.</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+
+            <div class="collection-card">
+                <div class="collection-image">[Premium Jewelry Image]</div>
+                <div class="collection-info">
+                    <h3>Custom Creations</h3>
+                    <p>Bespoke designs crafted to your vision. Transform your imagination into an heirloom masterpiece.</p>
+                    <a href="#" class="collection-link">Explore</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HERITAGE SECTION ==================== -->
+    <section class="heritage-section" id="heritage">
+        <div class="section-header">
+            <h2>Our Heritage</h2>
+            <div class="divider"></div>
+        </div>
+
+        <div class="heritage-content">
+            <div class="heritage-grid">
+                <div class="heritage-text">
+                    <h3>A Legacy of Craft</h3>
+                    <p>House of Sharvi was founded on the belief that jewellery is more than adornment—it's a legacy. Every piece we create carries the weight of tradition and the promise of timelessness.</p>
+                    <p>Our journey began with a passion for ethical sourcing, masterful craftsmanship, and designs that transcend trends. Today, we continue this legacy by honoring heritage while embracing contemporary artistry.</p>
+                    <p>Each collection represents our commitment to creating pieces that become cherished heirlooms, passed down through generations and treasured with every wearing.</p>
+                </div>
+                <div class="heritage-visual">
+                    [Heritage Story Image]
+                </div>
+            </div>
+
+            <div class="heritage-grid" style="margin-top: 4rem;">
+                <div class="heritage-visual">
+                    [Values & Mission Image]
+                </div>
+                <div class="heritage-text">
+                    <h3>Our Values</h3>
+                    <p><strong>Authenticity:</strong> Every piece tells a true story, crafted with integrity and passion.</p>
+                    <p><strong>Sustainability:</strong> We ethically source all materials, respecting both people and planet.</p>
+                    <p><strong>Excellence:</strong> Exceptional craftsmanship is non-negotiable. We invest time, skill, and care in every detail.</p>
+                    <p><strong>Innovation:</strong> We blend timeless techniques with contemporary design, creating pieces that are both classic and current.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CRAFTSMANSHIP SECTION ==================== -->
+    <section class="craftsmanship-section" id="craftsmanship">
+        <div class="section-header">
+            <h2>The Art of Craftsmanship</h2>
+            <div class="divider"></div>
+            <p>From intricate detailing to ethical sourcing, discover how every House of Sharvi piece comes to life.</p>
+        </div>
+
+        <div class="craftsmanship-grid">
+            <div class="craft-card">
+                <div class="craft-icon">✨</div>
+                <h3>Design & Concept</h3>
+                <p>Every piece begins with a vision. Our designers sketch, refine, and perfect concepts that balance heritage with contemporary aesthetics.</p>
+            </div>
+
+            <div class="craft-card">
+                <div class="craft-icon">🔍</div>
+                <h3>Material Selection</h3>
+                <p>We meticulously source ethically mined diamonds, gemstones, and precious metals. Quality and integrity guide every selection.</p>
+            </div>
+
+            <div class="craft-card">
+                <div class="craft-icon">🛠️</div>
+                <h3>Master Crafting</h3>
+                <p>Our artisans bring designs to life through traditional techniques and meticulous attention to detail, creating pieces of unparalleled beauty.</p>
+            </div>
+
+            <div class="craft-card">
+                <div class="craft-icon">💎</div>
+                <h3>Setting & Gemstones</h3>
+                <p>Expert gem setting ensures each stone is positioned to catch light perfectly. Every facet is considered and perfected.</p>
+            </div>
+
+            <div class="craft-card">
+                <div class="craft-icon">✓</div>
+                <h3>Quality Assurance</h3>
+                <p>Every piece undergoes rigorous inspection. We verify authenticity, durability, and beauty before it reaches you.</p>
+            </div>
+
+            <div class="craft-card">
+                <div class="craft-icon">💌</div>
+                <h3>Timeless Packaging</h3>
+                <p>Your jewellery arrives in elegant, sustainable packaging that reflects the luxury and care invested in your piece.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== JOURNAL SECTION ==================== -->
+    <section class="journal-section" id="journal">
+        <div class="section-header">
+            <h2>The Journal</h2>
+            <div class="divider"></div>
+            <p>Stories, insights, and inspiration from the world of luxury jewellery and timeless elegance.</p>
+        </div>
+
+        <div class="journal-grid">
+            <div class="journal-card">
+                <div class="journal-image">[Article Image]</div>
+                <div class="journal-content">
+                    <div class="journal-date">May 15, 2024</div>
+                    <h3>The Timeless Appeal of Minimalist Jewellery</h3>
+                    <p class="journal-excerpt">Discover why less is more in luxury jewellery design. We explore the elegance of restraint and the power of simplicity in contemporary craftsmanship.</p>
+                    <a href="#" class="journal-link">Read More</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">[Article Image]</div>
+                <div class="journal-content">
+                    <div class="journal-date">May 8, 2024</div>
+                    <h3>Ethical Luxury: Our Commitment to Sustainability</h3>
+                    <p class="journal-excerpt">Understanding the journey of every stone and metal. Learn how ethical sourcing creates jewellery that feels as good as it looks.</p>
+                    <a href="#" class="journal-link">Read More</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">[Article Image]</div>
+                <div class="journal-content">
+                    <div class="journal-date">April 30, 2024</div>
+                    <h3>Heritage Meets Modernity: Our Design Philosophy</h3>
+                    <p class="journal-excerpt">Bridging traditional Indian craftsmanship with contemporary design sensibilities. A conversation with our creative team.</p>
+                    <a href="#" class="journal-link">Read More</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">[Article Image]</div>
+                <div class="journal-content">
+                    <div class="journal-date">April 22, 2024</div>
+                    <h3>Diamond Education: Understanding the 4Cs</h3>
+                    <p class="journal-excerpt">A comprehensive guide to selecting your perfect diamond. Learn about cut, colour, clarity, and carat weight with expert insights.</p>
+                    <a href="#" class="journal-link">Read More</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">[Article Image]</div>
+                <div class="journal-content">
+                    <div class="journal-date">April 15, 2024</div>
+                    <h3>Bridal Stories: Celebrating Love & Commitment</h3>
+                    <p class="journal-excerpt">Real stories of real brides and their bespoke House of Sharvi pieces. Where personal journeys become heirloom moments.</p>
+                    <a href="#" class="journal-link">Read More</a>
+                </div>
+            </div>
+
+            <div class="journal-card">
+                <div class="journal-image">[Article Image]</div>
+                <div class="journal-content">
+                    <div class="journal-date">April 8, 2024</div>
+                    <h3>The Art of Layering: Creating Your Signature Look</h3>
+                    <p class="journal-excerpt">Master the art of jewellery layering. Tips and inspiration for creating sophisticated, personalized combinations.</p>
+                    <a href="#" class="journal-link">Read More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CONTACT SECTION ==================== -->
+    <section class="contact-section" id="contact">
+        <div class="section-header">
+            <h2>Get in Touch</h2>
+            <div class="divider"></div>
+            <p>Connect with us for consultations, custom designs, or any inquiries about our collections.</p>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-info-block">
+                <div class="info-item">
+                    <h3>Visit Us</h3>
+                    <p>House of Sharvi<br>Jaipur, Rajasthan<br>India</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919628881696">+91 9628881696</a></p>
+                </div>
+
+                <div class="info-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:sharvi071@gmail.com">sharvi071@gmail.com</a></p>
+                </div>
+
+                <div class="info-item">
+                    <h3>Business Details</h3>
+                    <p>GST No.: 09BVBPV7769Q1Z8</p>
+                </div>
+
+                <div class="info-item">
+                    <h3>Hours</h3>
+                    <p>Monday – Saturday: 10:00 AM – 6:00 PM<br>Sunday: By Appointment</p>
+                </div>
+            </div>
+
+            <form class="contact-form" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" name="phone">
+                </div>
+
+                <div class="form-group">
+                    <label for="inquiry">Inquiry Type</label>
+                    <input type="text" id="inquiry" name="inquiry" placeholder="e.g., Custom Design, Consultation, Inquiry">
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer-section">
+        <div class="footer-content">
+            <div class="footer-block">
+                <h3>House of Sharvi</h3>
+                <div class="footer-divider"></div>
+                <p class="footer-text">Crafting timeless jewellery that celebrates individuality, heritage, and enduring beauty. Every piece is a testament to our commitment to excellence and authenticity.</p>
+            </div>
+
+            <div class="footer-block">
+                <h3>Quick Links</h3>
+                <div class="footer-divider"></div>
+                <p class="footer-text">
+                    <a href="#collections" style="color: rgba(255, 255, 255, 0.85); text-decoration: none; display: block; margin-bottom: 0.5rem;">Collections</a>
+                    <a href="#heritage" style="color: rgba(255, 255, 255, 0.85); text-decoration: none; display: block; margin-bottom: 0.5rem;">Heritage</a>
+                    <a href="#craftsmanship" style="color: rgba(255, 255, 255, 0.85); text-decoration: none; display: block; margin-bottom: 0.5rem;">Craftsmanship</a>
+                    <a href="#journal" style="color: rgba(255, 255, 255, 0.85); text-decoration: none; display: block;">Journal</a>
+                </p>
+            </div>
+
+            <div class="footer-block">
+                <h3>Connect</h3>
+                <div class="footer-divider"></div>
+                <p class="footer-text">
+                    <a href="tel:+919628881696" style="color: var(--accent-gold); text-decoration: none; display: block; margin-bottom: 0.5rem;">+91 9628881696</a>
+                    <a href="mailto:sharvi071@gmail.com" style="color: var(--accent-gold); text-decoration: none; display: block;">sharvi071@gmail.com</a>
+                </p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-tagline">House of Sharvi® — Timeless Jewellery, Crafted for Generations.</div>
+            <p>&copy; 2024 House of Sharvi. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const form = event.target;
+            const name = form.querySelector('#name').value;
+            alert(`Thank you, ${name}! We've received your message. We'll get back to you shortly.`);
+            form.reset();
+        }
+    </script>
+</body>
+</html>
